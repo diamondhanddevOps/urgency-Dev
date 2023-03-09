@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Meeting Booking Confirmation</title>
+</head>
+<body>
+  <h1>Meeting Booking Confirmation</h1>
+  <p>Thank you for booking a meeting with us. We have received your information and will send you an email with the meeting details and payment instructions shortly.</p>
+  <p>Here is a summary of your booking:</p>
+  <ul>
+    <li>Name: {{ name }}</li>
+    <li>Email: {{ email }}</li>
+    <li>Date: {{ date }}</li>
+    <li>Time: {{ time }}</li>
+    {% if additional_info %}
+      <li>Additional Information: {{ additional_info }}</li>
+    {% endif %}
+  </ul>
+</body>
+</html>

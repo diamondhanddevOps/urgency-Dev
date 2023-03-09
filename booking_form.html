@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Meeting Booking Form</title>
+</head>
+<body>
+  <h1>Meeting Booking Form</h1>
+  <form method="post" action="{{ url_for('book_meeting') }}">
+    <label for="name">Name:</label>
+    <input type="text" name="name" id="name" required>
+    <br>
+    <label for="email">Email:</label>
+    <input type="email" name="email" id="email" required>
+    <br>
+    <label for="date">Preferred Meeting Date:</label>
+    <input type="date" name="date" id="date" required>
+    <br>
+    <label for="time">Preferred Meeting Time:</label>
+    <input type="time" name="time" id="time" required>
+    <br>
+    <label for="additional_info">Additional Information:</label>
+    <textarea name="additional_info" id="additional_info"></textarea>
+    <br>
+    <input type="submit" value="Book Meeting">
+  </form>
+  <p>Fee: $100</p>
+  <p>Payment instructions will be sent to your email upon submission of this form.</p>
+</body>
+</html>
+<form action="{{ url_for('book_meeting') }}" method="post">
+    <!-- form fields for user's name, email, date, and time go here -->
+    <input type="hidden" name="stripeToken" value="">
+    <button type="submit" class="btn btn-primary">Book Meeting ($100)</button>
+  </form>
+  <script src="https://checkout.stripe.com/checkout.js"></script>
+  <script>
+    var handler = StripeCheckout.configure({
+      key: '{{ app.config["STRIPE_PUBLIC_KEY"] }}',
+      token: function(token) {
+        // Set the stripeToken input field value with the token.id
+        document.querySelector('input[name="stripeToken"]').value = token.id;
+        // Submit the form to process the payment
+        document.querySelector('form').submit();
+      }
+    });
+  
+    document.querySelector('button[type="submit"]').addEventListener('click', function(e) {
+      // Open the Stripe Checkout dialog to process the payment
+      handler.open({
+        name: 'urgency-Dev',
+        description: 'Meeting booking fee',
+        amount: 10000,
+        currency: 'usd'
+      });
+      e.preventDefault();
+    });
+  </script>
+  
