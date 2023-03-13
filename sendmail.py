@@ -1,13 +1,13 @@
 from flask_mail import Message, Mail
 from flask import render_template
 
-def send_confirmation_email(urgency2021@gmail.com, meeting_details):
+def send_confirmation_email(abiola@urgency2021.com, meeting_details):
     # Initialize Flask-Mail extension
     mail = Mail()
 
     # Set up email message
     msg = Message(subject="Meeting Confirmation",
-                  sender=("Abiola", "urgency201@gmail.com"),
+                  sender=("Abiola", "abiola@urgency201.com"),
                   recipients=['user_email'])
 
     # Render email body from template with meeting details
