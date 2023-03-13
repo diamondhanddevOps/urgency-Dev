@@ -3,8 +3,8 @@ import json
 
 def book_session(name, email, date_time):
     # Enter your Zoom API key and secret here
-    api_key = 'wkCcCc2QQVeQIXwOtdUJ_A'
-    api_secret = 'clBUnpPiHrjSkoyTzAUbAUnKrwMhU8M2ZfH6'
+    api_key = 'api_key'
+    api_secret = 'api_secret'
 
     
     # Set up the request headers
@@ -41,7 +41,7 @@ def book_session(name, email, date_time):
     return join_url
 
 
-def get_access_token(wkCcCc2QQVeQIXwOtdUJ_A, clBUnpPiHrjSkoyTzAUbAUnKrwMhU8M2ZfH6
+def get_access_token(api_key, api_secret
 ):
     # Set up the request headers and body to get the access token
     headers = {
@@ -58,6 +58,6 @@ def get_access_token(wkCcCc2QQVeQIXwOtdUJ_A, clBUnpPiHrjSkoyTzAUbAUnKrwMhU8M2ZfH
     
     # Parse the response and get the access token
     response_data = json.loads(response.text)
-    access_token = response_data['C5OYKgIcRHKx0vTyKjjJAA']
+    access_token = response_data['access_token']
     
     return access_token
