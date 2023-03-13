@@ -14,7 +14,7 @@ def book_session():
         return
 
     # Initialize Zoom client with API key and secret
-    client = ZoomClient(api_key='wkCcCc2QQVeQIXwOtdUJ_A', api_secret='clBUnpPiHrjSkoyTzAUbAUnKrwMhU8M2ZfH6')
+    client = ZoomClient(api_key='api_key', api_secret='api_secret')
 
     # Set up meeting details
     meeting_details = {
